@@ -23,11 +23,11 @@ public class SplashActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
 
-        SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
 
-        boolean isLoggedIn = sh.getBoolean("isLoggedIn", true);
-        String id_user = sh.getString("id_user", "");
-        String jabatan = sh.getString("jabatan", "");
+        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+        String id_user = sharedPreferences.getString("id_user", "");
+        String jabatan = sharedPreferences.getString("jabatan", "");
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

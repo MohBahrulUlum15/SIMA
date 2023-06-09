@@ -2,6 +2,7 @@ package com.example.sima.viewmodels;
 
 import androidx.lifecycle.ViewModel;
 
+import com.example.sima.data.model.Barang;
 import com.example.sima.data.response.DataAset;
 import com.example.sima.data.response.TambahAsetResponse;
 import com.example.sima.network.ApiConfig;
@@ -32,6 +33,11 @@ public class AsetViewModel extends ViewModel {
 
     public void getFullAset(Callback<List<DataAset>> callback){
         Call<List<DataAset>> call = ApiConfig.getApiService().getDataAset();
+        call.enqueue(callback);
+    }
+
+    public void getNamaAset(Callback<List<Barang>> callback){
+        Call<List<Barang>> call = ApiConfig.getApiService().getNamaBarang();
         call.enqueue(callback);
     }
 

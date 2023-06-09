@@ -47,17 +47,18 @@
         app:layout_constraintTop_toBottomOf="@id/card_top">
 
         <TextView
-            android:id="@+id/user"
+            android:id="@+id/username"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:paddingTop="20dp"
             android:text="Hi, User"
             android:textAlignment="center"
-            android:textSize="20dp"
+            android:textSize="16sp"
             android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -275,7 +276,6 @@
                     </RelativeLayout>
 
                 </LinearLayout>
-
 
 
             </LinearLayout>

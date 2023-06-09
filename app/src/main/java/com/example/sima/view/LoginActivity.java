@@ -6,12 +6,12 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.sima.data.response.LoginResponse;
 import com.example.sima.databinding.ActivityLoginBinding;
+import com.example.sima.network.SessionManager;
 import com.example.sima.viewmodels.AuthViewModel;
 
 import retrofit2.Call;
@@ -24,6 +24,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private AuthViewModel authViewModel;
 
+    SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         authViewModel = new ViewModelProvider(this).get(AuthViewModel.class);
+
+        sessionManager = new SessionManager(this);
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
@@ -63,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                                 LoginResponse loginResponse = response.body();
                                 // Process the login response data
                                 if (loginResponse.getSuccess()) {
+                                    sessionManager.createLoginSession(loginResponse.getData().getIdUser(), loginResponse.getData().getUsername(), loginResponse.getData().getPassword(), loginResponse.getData().getNamaLengkap());
                                     if (loginResponse.getData().getJabatan().equals("Admin")) {
                                         startActivity(new Intent(LoginActivity.this, DashboardAdminActivity.class));
                                         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
@@ -70,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                                         editor.putBoolean("isLoggedIn", true);
                                         editor.putString("id_user", loginResponse.getData().getIdUser());
                                         editor.putString("jabatan", loginResponse.getData().getJabatan());
+                                        editor.putString("username", loginResponse.getData().getUsername());
                                         editor.apply();
                                         finish();
                                     } else {
@@ -79,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                                         editor.putBoolean("isLoggedIn", true);
                                         editor.putString("id_user", loginResponse.getData().getIdUser());
                                         editor.putString("jabatan", loginResponse.getData().getJabatan());
+                                        editor.putString("username", loginResponse.getData().getUsername());
                                         editor.apply();
                                         finish();
                                         finish();

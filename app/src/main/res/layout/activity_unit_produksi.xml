@@ -28,6 +28,33 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_gambar_unit_produksi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Gambar"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/img_unit_produksi"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:padding="12dp"
+                android:src="@drawable/logo"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <Button
+                android:id="@+id/ambil_gambar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ambil Gambar"
+                android:textAllCaps="false"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
                 android:id="@+id/tv_tanggal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
-                android:text="Input Pompa Air"
+                android:text="Spesifikasi Pompa Air"
                 android:textAlignment="viewEnd"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -104,28 +131,28 @@
                 android:layout_height="48dp" />
 
             <TextView
-                android:id="@+id/tv_uraian_kegiatan_pompa_air"
+                android:id="@+id/tv_head_pompa_air"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Uraian Kegiatan"
+                android:text="Head Pompa"
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/et_uraian_kegiatan_pompa_air"
+                android:id="@+id/et_head_pompa_air"
                 android:layout_width="match_parent"
                 android:layout_height="48dp" />
 
             <TextView
-                android:id="@+id/tv_gambar_pompa_air"
+                android:id="@+id/tv_debit_pompa_air"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Gambar"
+                android:text="Debit Pompa"
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/et_gambar_pompa_air"
+                android:id="@+id/et_debit_pompa_air"
                 android:layout_width="match_parent"
                 android:layout_height="48dp" />
 
@@ -135,7 +162,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
-                android:text="Input Pompa Dosing"
+                android:text="Spesifikasi Pompa Dosing"
                 android:textAlignment="viewEnd"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -154,28 +181,28 @@
                 android:layout_height="48dp" />
 
             <TextView
-                android:id="@+id/tv_uraian_kegiatan_pompa_dosing"
+                android:id="@+id/tv_head_pompa_dosing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Uraian Kegiatan"
+                android:text="Head Pompa"
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/et_uraian_kegiatan_pompa_dosing"
+                android:id="@+id/et_head_pompa_dosing"
                 android:layout_width="match_parent"
                 android:layout_height="48dp" />
 
             <TextView
-                android:id="@+id/tv_gambar_pompa_dosing"
+                android:id="@+id/tv_debit_pompa_dosing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Gambar"
+                android:text="Debit Pompa"
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/et_gambar_pompa_dosing"
+                android:id="@+id/et_debit_pompa_dosing"
                 android:layout_width="match_parent"
                 android:layout_height="48dp" />
 
@@ -226,6 +253,19 @@
 
             <EditText
                 android:id="@+id/et_arus_maksimal_motor_pompa"
+                android:layout_width="match_parent"
+                android:layout_height="48dp" />
+
+            <TextView
+                android:id="@+id/tv_cos_motor_pompa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="COS"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_cos_motor_pompa"
                 android:layout_width="match_parent"
                 android:layout_height="48dp" />
 

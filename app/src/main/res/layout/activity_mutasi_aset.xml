@@ -37,7 +37,12 @@
             <EditText
                 android:id="@+id/et_tanggal"
                 android:layout_width="match_parent"
-                android:layout_height="48dp" />
+                android:layout_height="48dp"
+                android:hint="Pilih tanggal"
+                android:drawableEnd="@drawable/ic_kalender"
+                android:paddingEnd="16dp"
+                android:focusable="false"
+                android:clickable="true"/>
 
             <TextView
                 android:id="@+id/tv_lokasi_awal"
@@ -73,22 +78,24 @@
                 android:text="Nama Barang"
                 android:textSize="16sp" />
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/et_nama_barang"
-                    android:layout_width="250dp"
-                    android:layout_height="48dp" />
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:focusable="false"
+                    android:layout_toStartOf="@id/spinner_nama_barang"/>
 
                 <Spinner
                     android:id="@+id/spinner_nama_barang"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"/>
 
-            </LinearLayout>
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_sepesifikasi_barang"
@@ -114,6 +121,7 @@
             <EditText
                 android:id="@+id/et_nama_karyawan"
                 android:layout_width="match_parent"
+                android:focusable="false"
                 android:layout_height="48dp" />
 
             <TextView
@@ -130,6 +138,7 @@
                 android:layout_height="48dp" />
 
             <Button
+                android:id="@+id/action_simpan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

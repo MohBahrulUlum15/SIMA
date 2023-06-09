@@ -2,17 +2,22 @@ package com.example.sima.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.sima.databinding.ActivityMainBinding;
+import com.example.sima.network.SessionManager;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
+    private SessionManager sessionManager;
+
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +27,17 @@ public class MainActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+
+        sessionManager = new SessionManager(this);
+
+//        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+//
+//        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+//        String id_user = sharedPreferences.getString("id_user", "");
+//        String jabatan = sharedPreferences.getString("jabatan", "");
+//        String username = sharedPreferences.getString("username", "");
+//
+        binding.username.setText("Hi, " + sessionManager.getNamaLengkap() + " | " + sessionManager.getIdUser());
 
         binding.btnTambahAset.setOnClickListener(new View.OnClickListener() {
             @Override

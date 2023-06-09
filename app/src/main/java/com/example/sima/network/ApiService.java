@@ -5,6 +5,8 @@ import com.example.sima.data.response.DataAset;
 import com.example.sima.data.response.LoginResponse;
 import com.example.sima.data.response.RegisterResponse;
 import com.example.sima.data.response.TambahAsetResponse;
+import com.example.sima.data.response.TambahMutasiResponse;
+import com.example.sima.data.response.TambahPerawatanResponse;
 
 import java.util.List;
 
@@ -73,6 +75,40 @@ public interface ApiService {
             String kondisi,
             @Field("nama_gambar")
             String nama_gambar
+    );
+
+    @FormUrlEncoded
+    @POST("sima/tambah_perawatan.php")
+    Call<TambahPerawatanResponse> tambahPerawatan(
+            @Field("tanggal")
+            String tanggal,
+            @Field("kode_barang")
+            String kode_barang,
+            @Field("uraian_kegiatan")
+            String uraian_kegiatan,
+            @Field("nama_gambar")
+            String nama_gambar
+    );
+
+    @FormUrlEncoded
+    @POST("sima/tambah_mutasi.php")
+    Call<TambahMutasiResponse> tambahMutasi(
+            @Field("tanggal")
+            String tanggal,
+            @Field("kode_barang")
+            String kode_barang,
+            @Field("lokasi_awal")
+            String lokasi_awal,
+            @Field("spesifikasi")
+            String spesifikasi,
+            @Field("nama_gambar")
+            String nama_gambar,
+            @Field("lokasi_akhir")
+            String lokasi_akhir,
+            @Field("id_user")
+            String is_user,
+            @Field("quality_control")
+            String quality_control
     );
 
     @GET("sima/get_nama_aset.php")

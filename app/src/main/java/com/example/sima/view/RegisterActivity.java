@@ -3,14 +3,22 @@ package com.example.sima.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.sima.R;
 import com.example.sima.data.response.RegisterResponse;
 import com.example.sima.databinding.ActivityRegisterBinding;
 import com.example.sima.viewmodels.AuthViewModel;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,6 +29,9 @@ public class RegisterActivity extends AppCompatActivity {
     private ActivityRegisterBinding binding;
 
     private AuthViewModel authViewModel;
+
+    private EditText dateEditText;
+    private SimpleDateFormat dateFormatter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +44,16 @@ public class RegisterActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+
+        dateEditText = findViewById(R.id.et_tanggal_lahir);
+        dateFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+
+        dateEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog();
+            }
+        });
 
         binding.actionLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,17 +80,17 @@ public class RegisterActivity extends AppCompatActivity {
                 String username = binding.etUsername.getText().toString();
                 String password = binding.etPassword.getText().toString();
 
-                if (nama_lengkap.isEmpty()){
+                if (nama_lengkap.isEmpty()) {
                     binding.etNamaLengkap.setError("belum diisi!");
                 } else if (tempat_lahir.isEmpty()) {
                     binding.etTempatLahir.setError("belum diisi!");
-                } else if (tanggal_lahir.isEmpty()){
+                } else if (tanggal_lahir.isEmpty()) {
                     binding.etTanggalLahir.setError("belum diisi!");
-                } else if (alamat_lengkap.isEmpty()){
+                } else if (alamat_lengkap.isEmpty()) {
                     binding.etAlamatLengkap.setError("belum diisi!");
                 } else if (jenis_kelamin.isEmpty()) {
                     binding.etJenisKelamin.setError("belum diisi!");
-                } else if (kewarganegaraan.isEmpty()){
+                } else if (kewarganegaraan.isEmpty()) {
                     binding.etKewarganegaraan.setError("belum diisi!");
                 } else if (agama.isEmpty()) {
                     binding.etAgama.setError("belum diisi!");
@@ -77,13 +98,13 @@ public class RegisterActivity extends AppCompatActivity {
                     binding.etNoHandphone.setError("belum diisi!");
                 } else if (pendidikan_terakhir.isEmpty()) {
                     binding.etPendidikanTerakhir.setError("belum diisi!");
-                } else if (jabatan.isEmpty()){
+                } else if (jabatan.isEmpty()) {
                     binding.etJabatan.setError("belum diisi!");
                 } else if (departemen.isEmpty()) {
                     binding.etDepartemen.setError("belum diisi!");
                 } else if (username.isEmpty()) {
                     binding.etUsername.setError("belum diisi!");
-                } else if (password.isEmpty()){
+                } else if (password.isEmpty()) {
                     binding.etPassword.setError("belum diisi!");
                 } else {
                     authViewModel.register(nama_lengkap, tempat_lahir, tanggal_lahir,
@@ -91,9 +112,9 @@ public class RegisterActivity extends AppCompatActivity {
                             jabatan, departemen, username, password, new Callback<RegisterResponse>() {
                                 @Override
                                 public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
-                                    if (response.isSuccessful()){
+                                    if (response.isSuccessful()) {
                                         RegisterResponse registerResponse = response.body();
-                                        if (registerResponse.isSuccess()){
+                                        if (registerResponse.isSuccess()) {
                                             Toast.makeText(RegisterActivity.this, registerResponse.getMessage(), Toast.LENGTH_SHORT).show();
                                             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                                             finish();
@@ -114,5 +135,25 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void showDatePickerDialog() {
+        final Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
+                        Calendar selectedDate = Calendar.getInstance();
+                        selectedDate.set(selectedYear, selectedMonth, selectedDay);
+                        String formattedDate = dateFormatter.format(selectedDate.getTime());
+                        dateEditText.setText(formattedDate);
+                    }
+                }, year, month, day);
+
+        datePickerDialog.show();
     }
 }

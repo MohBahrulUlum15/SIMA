@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".view.PerawatanAsetActivity">
+    tools:context=".view.GensetActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,58 +22,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Perawatan Aset"
+                android:text="Spesifikasi Genset"
                 android:textAlignment="center"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_gambar_perawatan_aset"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Gambar"
-                android:textSize="16sp" />
-
-            <ImageView
-                android:id="@+id/img_perawatan_aset"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:padding="12dp"
-                android:src="@drawable/logo"
-                android:layout_gravity="center_horizontal"
-                />
-
-            <Button
-                android:id="@+id/ambil_gambar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ambil Gambar"
-                android:textAllCaps="false"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="16dp"
-                android:layout_gravity="center_horizontal"/>
-
-            <TextView
-                android:id="@+id/tv_nama_user"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Nama Karyawan"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/et_nama_karyawan"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:paddingEnd="16dp"
-                android:focusable="false"/>
-
-            <TextView
                 android:id="@+id/tv_tanggal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:text="Tanggal"
                 android:textSize="16sp" />
 
@@ -86,41 +45,54 @@
                 android:clickable="true"/>
 
             <TextView
-                android:id="@+id/tv_nama_barang"
+                android:id="@+id/tv_nama_barang_genset"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Nama Barang"
                 android:textSize="16sp" />
 
-            <RelativeLayout
+            <EditText
+                android:id="@+id/et_nama_barang_genset"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="48dp" />
 
-                <EditText
-                    android:id="@+id/et_nama_barang"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:focusable="false"
-                    android:layout_toStartOf="@id/spinner_nama_barang"/>
-
-                <Spinner
-                    android:id="@+id/spinner_nama_barang"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_alignParentEnd="true"/>
-
-            </RelativeLayout>
             <TextView
-                android:id="@+id/tv_uraian_kegiatan"
+                android:id="@+id/tv_merk_genset"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Uraian Kegiatan"
+                android:text="Merk Genset"
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/et_uraian_kegiatan"
+                android:id="@+id/et_merk_genset"
+                android:layout_width="match_parent"
+                android:layout_height="48dp" />
+
+            <TextView
+                android:id="@+id/tv_kapasitas_genset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Kapasitas"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_kapasitas_genset"
+                android:layout_width="match_parent"
+                android:layout_height="48dp" />
+
+            <TextView
+                android:id="@+id/tv_kondisi_genset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Kondisi"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_kondisi_genset"
                 android:layout_width="match_parent"
                 android:layout_height="48dp" />
 

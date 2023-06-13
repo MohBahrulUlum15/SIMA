@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,6 +20,7 @@ import com.example.sima.data.model.Barang;
 import com.example.sima.data.response.TambahPerawatanResponse;
 import com.example.sima.databinding.ActivityMutasiAsetBinding;
 import com.example.sima.databinding.ActivityPerawatanAsetBinding;
+import com.example.sima.network.SessionManager;
 import com.example.sima.viewmodels.AsetViewModel;
 import com.example.sima.viewmodels.PerawatanViewModel;
 
@@ -49,11 +51,20 @@ public class PerawatanAsetActivity extends AppCompatActivity {
 
     private ActivityPerawatanAsetBinding binding;
 
+    SessionManager sessionManager;
+    String ID_USER;
+
+    private SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityPerawatanAsetBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
 
         asetViewModel = new ViewModelProvider(this).get(AsetViewModel.class);
         perawatanViewModel = new ViewModelProvider(this).get(PerawatanViewModel.class);
@@ -61,12 +72,17 @@ public class PerawatanAsetActivity extends AppCompatActivity {
         dateEditText = findViewById(R.id.et_tanggal);
         dateFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
 
-        dateEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDatePickerDialog();
-            }
-        });
+        dateEditText.setOnClickListener(v -> showDatePickerDialog());
+
+        sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+
+        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+        String id_user = sharedPreferences.getString("id_user", "");
+        ID_USER = id_user;
+
+        sessionManager = new SessionManager(this);
+
+        binding.etNamaKaryawan.setText(sessionManager.getNamaLengkap() + " | " + ID_USER);
 
         // Inisialisasi spinner dan daftar barang
         spinnerBarang = findViewById(R.id.spinner_nama_barang);
@@ -137,7 +153,7 @@ public class PerawatanAsetActivity extends AppCompatActivity {
                 } else if (uraian_kegiatan.isEmpty()) {
                     binding.etUraianKegiatan.setError("belum diisi!");
                 } else {
-                    perawatanViewModel.tambahPerawatan(tanggal, kodeBarangTerpilih, uraian_kegiatan, nama_gambar, new Callback<TambahPerawatanResponse>() {
+                    perawatanViewModel.tambahPerawatan(tanggal, ID_USER, kodeBarangTerpilih, uraian_kegiatan, nama_gambar, new Callback<TambahPerawatanResponse>() {
                         @Override
                         public void onResponse(Call<TambahPerawatanResponse> call, Response<TambahPerawatanResponse> response) {
                             if (response.isSuccessful()) {

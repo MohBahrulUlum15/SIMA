@@ -28,6 +28,9 @@ public class DataAset{
 	@SerializedName("nama_barang")
 	private String namaBarang;
 
+	@SerializedName("kode_barang")
+	private String kodeBarang;
+
 	public void setMerk(String merk){
 		this.merk = merk;
 	}
@@ -90,5 +93,13 @@ public class DataAset{
 
 	public String getNamaBarang(){
 		return namaBarang;
+	}
+
+	public void setKodeBarang(String namaBarang){
+		this.kodeBarang = kodeBarang;
+	}
+
+	public String getKodeBarang(){
+		return kodeBarang;
 	}
 }

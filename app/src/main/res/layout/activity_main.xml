@@ -60,7 +60,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_welcome">
 
@@ -73,7 +73,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -221,6 +220,103 @@
                         android:layout_marginEnd="24dp">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/card_pompa_air"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerInParent="true"
+                            app:cardCornerRadius="20dp">
+
+                            <ImageButton
+                                android:id="@+id/btn_pompa_air"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/ic_pompa" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/card_pompa_air"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="28dp"
+                            android:text="Pompa Air"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card_pompa_dosing"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerInParent="true"
+                            app:cardCornerRadius="20dp">
+
+                            <ImageButton
+                                android:id="@+id/btn_pompa_dosing"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/ic_pompa_dosing" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/card_pompa_dosing"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="24dp"
+                            android:text="Pompa Dosing"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="24dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card_motor_pompa"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerInParent="true"
+                            app:cardCornerRadius="20dp">
+
+                            <ImageButton
+                                android:id="@+id/btn_motor_pompa"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/ic_motor_pompa" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/card_motor_pompa"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="28dp"
+                            android:text="Motor Pompa"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp">
+
+                        <androidx.cardview.widget.CardView
                             android:id="@+id/card_panel"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
@@ -240,15 +336,22 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@id/card_panel"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="28dp"
+                            android:layout_marginTop="24dp"
                             android:text="Panel"
                             android:textSize="12sp" />
                     </RelativeLayout>
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:gravity="center">
+
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp">
+                        android:layout_marginEnd="24dp">
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/card_genset"
@@ -270,13 +373,42 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@id/card_genset"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="24dp"
+                            android:layout_marginTop="28dp"
                             android:text="Genset"
                             android:textSize="12sp" />
                     </RelativeLayout>
 
-                </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp">
 
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card_laporan_harian"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerInParent="true"
+                            app:cardCornerRadius="20dp">
+
+                            <ImageButton
+                                android:id="@+id/btn_laporan_harian"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/ic_laporan" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/card_laporan_harian"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="24dp"
+                            android:text="Laporan Harian"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
+                </LinearLayout>
 
             </LinearLayout>
 

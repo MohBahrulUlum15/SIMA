@@ -61,6 +61,10 @@ public class MutasiAsetActivity extends AppCompatActivity {
         binding = ActivityMutasiAsetBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
         asetViewModel = new ViewModelProvider(this).get(AsetViewModel.class);
         mutasiViewModel = new ViewModelProvider(this).get(MutasiViewModel.class);
 

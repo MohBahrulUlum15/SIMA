@@ -15,6 +15,24 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".view.LaporanHarianActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.GensetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.PanelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MotorPompaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.PompaDosingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.PompaAirActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.DataAsetAdminActivity"
             android:exported="false" />
         <activity
@@ -46,7 +64,7 @@
             android:exported="false" />
         <activity
             android:name=".view.LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".view.MainActivity"
             android:exported="true">

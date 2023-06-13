@@ -39,6 +39,10 @@ public class TambahAsetActivity extends AppCompatActivity {
         binding = ActivityTambahAsetBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
         asetViewModel = new ViewModelProvider(this).get(AsetViewModel.class);
 
         if (getSupportActionBar() != null) {
@@ -56,6 +60,7 @@ public class TambahAsetActivity extends AppCompatActivity {
         });
 
         binding.actionSimpan.setOnClickListener(view -> {
+            String kode_barang = binding.etKodeBarang.getText().toString();
             String nama_barang = binding.etNamaBarang.getText().toString();
             String merk = binding.etMerkBarang.getText().toString();
             String harga = binding.etHargaBarang.getText().toString();
@@ -65,7 +70,9 @@ public class TambahAsetActivity extends AppCompatActivity {
             String kondisi = binding.etKondisi.getText().toString();
             String nama_gambar = "gambar";
 
-            if (nama_barang.isEmpty()) {
+            if (kode_barang.isEmpty()) {
+                binding.etKodeBarang.setError("belum diisi!");
+            } else if (nama_barang.isEmpty()) {
                 binding.etNamaBarang.setError("belum diisi!");
             } else if (merk.isEmpty()) {
                 binding.etMerkBarang.setError("belum diisi!");
@@ -82,7 +89,7 @@ public class TambahAsetActivity extends AppCompatActivity {
 //            } else if (nama_gambar.isEmpty()) {
 //                binding.etGambar.setError("belum diisi!");
             } else {
-                asetViewModel.tambahAset(nama_barang, merk, harga, jangka_penggunaan, tanggal_masuk, penanggung_jawab, kondisi, nama_gambar, new Callback<TambahAsetResponse>() {
+                asetViewModel.tambahAset(kode_barang, nama_barang, merk, harga, jangka_penggunaan, tanggal_masuk, penanggung_jawab, kondisi, nama_gambar, new Callback<TambahAsetResponse>() {
                     @Override
                     public void onResponse(Call<TambahAsetResponse> call, Response<TambahAsetResponse> response) {
                         if (response.isSuccessful()) {
@@ -90,7 +97,7 @@ public class TambahAsetActivity extends AppCompatActivity {
                             assert tambahAsetResponse != null;
                             if (tambahAsetResponse.isSuccess()) {
                                 Toast.makeText(TambahAsetActivity.this, tambahAsetResponse.getMessage(), Toast.LENGTH_SHORT).show();
-                                binding.etNamaBarang.setFocusable(true);
+                                binding.etKodeBarang.setFocusable(true);
                                 binding.etNamaBarang.setText("");
                                 binding.etMerkBarang.setText("");
                                 binding.etHargaBarang.setText("");

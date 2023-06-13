@@ -2,11 +2,13 @@ package com.example.sima.network;
 
 import com.example.sima.data.model.Barang;
 import com.example.sima.data.response.DataAset;
+import com.example.sima.data.response.TambahLaporanHarianResponse;
 import com.example.sima.data.response.LoginResponse;
 import com.example.sima.data.response.RegisterResponse;
 import com.example.sima.data.response.TambahAsetResponse;
 import com.example.sima.data.response.TambahMutasiResponse;
 import com.example.sima.data.response.TambahPerawatanResponse;
+import com.example.sima.data.response.TambahUnitProduksiResponse;
 
 import java.util.List;
 
@@ -57,8 +59,10 @@ public interface ApiService {
     );
 
     @FormUrlEncoded
-    @POST("sima/tambah_aset.php")
+    @POST("sima/tambah_data/tambah_aset.php")
     Call<TambahAsetResponse> tambahAset(
+            @Field("kode_barang")
+            String kode_barang,
             @Field("nama_barang")
             String nama_barang,
             @Field("merk")
@@ -78,10 +82,12 @@ public interface ApiService {
     );
 
     @FormUrlEncoded
-    @POST("sima/tambah_perawatan.php")
+    @POST("sima/tambah_data/tambah_perawatan.php")
     Call<TambahPerawatanResponse> tambahPerawatan(
             @Field("tanggal")
             String tanggal,
+            @Field("id_user")
+            String id_user,
             @Field("kode_barang")
             String kode_barang,
             @Field("uraian_kegiatan")
@@ -91,7 +97,7 @@ public interface ApiService {
     );
 
     @FormUrlEncoded
-    @POST("sima/tambah_mutasi.php")
+    @POST("sima/tambah_data/tambah_mutasi.php")
     Call<TambahMutasiResponse> tambahMutasi(
             @Field("tanggal")
             String tanggal,
@@ -111,10 +117,43 @@ public interface ApiService {
             String quality_control
     );
 
-    @GET("sima/get_nama_aset.php")
+    @FormUrlEncoded
+    @POST("sima/tambah_data/tambah_unit_produksi.php")
+    Call<TambahUnitProduksiResponse> tambahUnitProduksi(
+            @Field("tanggal")
+            String tanggal,
+            @Field("id_user")
+            String id_user,
+            @Field("uraian_kegiatan")
+            String uraian_kegiatan,
+            @Field("daya_listrik")
+            String daya_listrik,
+            @Field("nama_gambar")
+            String nama_gambar
+    );
+
+    @FormUrlEncoded
+    @POST("sima/tambah_data/tambah_laporan_harian.php")
+    Call<TambahLaporanHarianResponse> tambahLaporanHarian(
+            @Field("tanggal")
+            String tanggal,
+            @Field("beban_puncak")
+            String beban_puncak,
+            @Field("luar_beban_puncak")
+            String luar_beban_puncak,
+            @Field("penggunaan_daya_reaktif")
+            String penggunaan_daya_reaktif,
+            @Field("standmeter")
+            String standmeter,
+            @Field("id_user")
+            String id_user,
+            @Field("nama_karyawan_dua")
+            String nama_karyawan_dua);
+
+    @GET("sima/get_data/get_nama_aset.php")
     Call<List<Barang>> getNamaBarang();
 
-    @GET("sima/get_aset.php")
+    @GET("sima/get_data/get_aset.php")
     Call<List<DataAset>> getDataAset();
 }
 

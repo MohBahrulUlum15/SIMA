@@ -14,7 +14,8 @@ import retrofit2.Callback;
 
 public class AsetViewModel extends ViewModel {
 
-    public void tambahAset(String nama_barang,
+    public void tambahAset(String kode_barang,
+                           String nama_barang,
                            String merk,
                            String harga,
                            String jangka_penggunaan,
@@ -23,7 +24,7 @@ public class AsetViewModel extends ViewModel {
                            String kondisi,
                            String nama_gambar,
                            Callback<TambahAsetResponse> callback) {
-        Call<TambahAsetResponse> call = ApiConfig.getApiService().tambahAset(
+        Call<TambahAsetResponse> call = ApiConfig.getApiService().tambahAset(kode_barang,
                 nama_barang, merk,
                 harga, jangka_penggunaan,
                 tanggal_masuk, penanggung_jawab,

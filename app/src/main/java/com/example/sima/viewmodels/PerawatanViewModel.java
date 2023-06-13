@@ -11,11 +11,12 @@ import retrofit2.Callback;
 public class PerawatanViewModel extends ViewModel {
 
     public void tambahPerawatan(String tanggal,
+                             String id_user,
                              String kode_barang,
                              String uraian_kegiatan,
                              String nama_gambar,
                              Callback<TambahPerawatanResponse> callback) {
-        Call<TambahPerawatanResponse> call = ApiConfig.getApiService().tambahPerawatan(tanggal, kode_barang,
+        Call<TambahPerawatanResponse> call = ApiConfig.getApiService().tambahPerawatan(tanggal, id_user, kode_barang,
                 uraian_kegiatan, nama_gambar);
         call.enqueue(callback);
     }

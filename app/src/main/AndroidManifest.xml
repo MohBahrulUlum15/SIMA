@@ -15,6 +15,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".view.admin.DataLaporanHarianAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.admin.DataSpesifikasiAsetAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.admin.DataMutasiAsetAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.admin.DataPerawatanAsetAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.admin.DataKaryawanAdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.SpesifikasiAsetActivity"
             android:exported="false" />
         <activity
@@ -36,7 +51,7 @@
             android:name=".view.PompaAirActivity"
             android:exported="false" />
         <activity
-            android:name=".view.DataAsetAdminActivity"
+            android:name=".view.admin.DataAsetAdminActivity"
             android:exported="false" />
         <activity
             android:name=".view.SplashActivity"
@@ -60,7 +75,7 @@
             android:name=".view.TambahAsetActivity"
             android:exported="false" />
         <activity
-            android:name=".view.DashboardAdminActivity"
+            android:name=".view.admin.DashboardAdminActivity"
             android:exported="false" />
         <activity
             android:name=".view.RegisterActivity"

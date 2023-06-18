@@ -19,24 +19,31 @@
         android:background="@color/bg_item">
 
         <TextView
-            android:id="@+id/tv_kode_barang"
+            android:id="@+id/tv_nama_karyawan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="kode barang"
+            android:text="nama karyawan"
             android:textSize="16sp"/>
 
         <TextView
-            android:id="@+id/tv_nama_aset"
+            android:id="@+id/tv_tempat_tanggal_lahir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="nama aset"
+            android:text="tempat, tanggal lahir"
             android:textSize="16sp"/>
 
         <TextView
-            android:id="@+id/tv_merk_aset"
+            android:id="@+id/tv_alamat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="merk aset"
+            android:text="alamat"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_no_handphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="no handphone"
             android:textSize="16sp"/>
 
         </LinearLayout>

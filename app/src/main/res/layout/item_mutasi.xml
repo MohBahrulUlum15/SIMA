@@ -19,24 +19,45 @@
         android:background="@color/bg_item">
 
         <TextView
-            android:id="@+id/tv_kode_barang"
+            android:id="@+id/tv_tanggal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="kode barang"
+            android:text="tanggal"
             android:textSize="16sp"/>
 
         <TextView
-            android:id="@+id/tv_nama_aset"
+            android:id="@+id/tv_nama_barang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="nama aset"
+            android:text="nama barang"
             android:textSize="16sp"/>
 
         <TextView
-            android:id="@+id/tv_merk_aset"
+            android:id="@+id/tv_lokasi_awal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="merk aset"
+            android:text="lokasi awal"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_lokasi_akhir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="lokasi akhir"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_spesifikasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="spesifikasi"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_penanggung_jawab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="penanggung jawab"
             android:textSize="16sp"/>
 
         </LinearLayout>

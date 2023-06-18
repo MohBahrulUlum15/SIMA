@@ -2,9 +2,12 @@ package com.example.sima.viewmodels;
 
 import androidx.lifecycle.ViewModel;
 
+import com.example.sima.data.response.admin.GetLaporanResponse;
 import com.example.sima.data.response.TambahLaporanHarianResponse;
 import com.example.sima.data.response.TambahMutasiResponse;
 import com.example.sima.network.ApiConfig;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,6 +24,11 @@ public class LaporanHarianViewModel extends ViewModel {
                              Callback<TambahLaporanHarianResponse> callback) {
         Call<TambahLaporanHarianResponse> call = ApiConfig.getApiService().tambahLaporanHarian(tanggal, beban_puncak, luar_beban_puncak, penggunaan_daya_reaktif,
                 standmeter, id_user, nama_karyawan_dua);
+        call.enqueue(callback);
+    }
+
+    public void getDataLaporanHarian(Callback<List<GetLaporanResponse>> callback){
+        Call<List<GetLaporanResponse>> call = ApiConfig.getApiService().getDataLaporanHarian();
         call.enqueue(callback);
     }
 }

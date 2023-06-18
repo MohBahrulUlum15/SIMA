@@ -6,9 +6,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 
 import com.example.sima.R;
+import com.example.sima.view.admin.DashboardAdminActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

@@ -30,10 +30,9 @@ public class AsetAdapter extends RecyclerView.Adapter<AsetAdapter.AsetViewHolder
     @Override
     public void onBindViewHolder(@NonNull AsetAdapter.AsetViewHolder holder, int position) {
         com.example.sima.data.response.DataAset dataAset = daftarAset.get(position);
+        holder.tvKode.setText(dataAset.getKodeBarang());
         holder.tvNama.setText(dataAset.getNamaBarang());
         holder.tvMerk.setText(dataAset.getMerk());
-        holder.tvHarga.setText(dataAset.getHarga());
-        holder.tvJangka.setText(dataAset.getJangkaPenggunaan());
     }
 
     @Override
@@ -42,16 +41,12 @@ public class AsetAdapter extends RecyclerView.Adapter<AsetAdapter.AsetViewHolder
     }
 
     public class AsetViewHolder extends RecyclerView.ViewHolder{
-        public TextView tvNama;
-        public TextView tvMerk;
-        public TextView tvHarga;
-        public TextView tvJangka;
+        public TextView tvKode, tvNama, tvMerk;
         public AsetViewHolder(@NonNull View itemView) {
             super(itemView);
+            tvKode = itemView.findViewById(R.id.tv_kode_barang);
             tvNama = itemView.findViewById(R.id.tv_nama_aset);
             tvMerk = itemView.findViewById(R.id.tv_merk_aset);
-            tvHarga = itemView.findViewById(R.id.tv_harga_aset);
-            tvJangka = itemView.findViewById(R.id.tv_jangka_aset);
         }
     }
 }

@@ -2,6 +2,13 @@ package com.example.sima.network;
 
 import com.example.sima.data.model.Barang;
 import com.example.sima.data.response.DataAset;
+import com.example.sima.data.response.DataGenset;
+import com.example.sima.data.response.DataLaporanHarian;
+import com.example.sima.data.response.DataMotorPompa;
+import com.example.sima.data.response.DataMutasi;
+import com.example.sima.data.response.DataPerawatan;
+import com.example.sima.data.response.DataPompa;
+import com.example.sima.data.response.DataUser;
 import com.example.sima.data.response.TambahGensetResponse;
 import com.example.sima.data.response.TambahLaporanHarianResponse;
 import com.example.sima.data.response.LoginResponse;
@@ -13,6 +20,14 @@ import com.example.sima.data.response.TambahPanelResponse;
 import com.example.sima.data.response.TambahPerawatanResponse;
 import com.example.sima.data.response.TambahPompaResponse;
 import com.example.sima.data.response.TambahUnitProduksiResponse;
+import com.example.sima.data.response.admin.GetLaporanResponse;
+import com.example.sima.data.response.admin.GetMutasiResponse;
+import com.example.sima.data.response.admin.GetPerawatanResponse;
+import com.example.sima.data.response.admin.GetSpekGensetResponse;
+import com.example.sima.data.response.admin.GetSpekMotorPompaResponse;
+import com.example.sima.data.response.admin.GetSpekPanelResponse;
+import com.example.sima.data.response.admin.GetSpekPompaResponse;
+import com.example.sima.data.response.admin.GetUnitProduksiResponse;
 
 import java.util.List;
 
@@ -21,6 +36,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface ApiService {
 
@@ -229,5 +245,34 @@ public interface ApiService {
 
     @GET("sima/admin/get_aset.php")
     Call<List<DataAset>> getDataAset();
+
+    @GET("sima/admin/get_karyawan.php")
+    Call<List<DataUser>> getDataKaryawan();
+
+    @GET("sima/admin/get_laporan_harian.php")
+    Call<List<GetLaporanResponse>> getDataLaporanHarian();
+
+    @GET("sima/admin/get_mutasi.php")
+    Call<List<GetMutasiResponse>> getDataMutasi();
+
+    @GET("sima/admin/get_perawatan.php")
+    Call<List<GetPerawatanResponse>> getDataPerawatan();
+
+    @GET("sima/admin/get_spek_genset.php")
+    Call<List<GetSpekGensetResponse>> getDataSpekGenset();
+
+    @GET("sima/admin/get_spek_motor_pompa.php")
+    Call<List<GetSpekMotorPompaResponse>> getDataSpekMotorPompa();
+
+    @GET("sima/admin/get_spek_panel.php")
+    Call<List<GetSpekPanelResponse>> getDataSpekPanel();
+
+    @GET("sima/admin/get_spek_pompa.php")
+    Call<List<GetSpekPompaResponse>> getDataSpekPompa(
+            @Query("janis_pompa") String jenisPompa
+    );
+
+    @GET("sima/admin/get_unit_produksi.php")
+    Call<List<GetUnitProduksiResponse>> getDataUnitProduksi();
 }
 

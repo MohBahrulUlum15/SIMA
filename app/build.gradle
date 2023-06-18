@@ -55,5 +55,4 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.6.1'
     implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.5"
 
-    implementation 'com.mcxiaoke.volley:library-aar:1.0.0'
 }

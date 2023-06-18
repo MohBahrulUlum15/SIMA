@@ -1,4 +1,4 @@
-package com.example.sima.view;
+package com.example.sima.view.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.sima.R;
 import com.example.sima.data.adapter.AsetAdapter;
 import com.example.sima.data.response.DataAset;
+import com.example.sima.databinding.ActivityDataAsetAdminBinding;
 import com.example.sima.viewmodels.AsetViewModel;
 
 import java.util.ArrayList;
@@ -22,6 +23,8 @@ import retrofit2.Response;
 
 public class DataAsetAdminActivity extends AppCompatActivity {
 
+    private ActivityDataAsetAdminBinding binding;
+
     private AsetViewModel asetViewModel;
     private RecyclerView recyclerView;
     private AsetAdapter asetAdapter;
@@ -30,11 +33,16 @@ public class DataAsetAdminActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_data_aset_admin);
+        binding = ActivityDataAsetAdminBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
 
         asetViewModel = new ViewModelProvider(this).get(AsetViewModel.class);
 
-        recyclerView = findViewById(R.id.rv_aset_admin);
+        recyclerView = findViewById(R.id.rv_data);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         daftarAset = new ArrayList<>();
         asetAdapter = new AsetAdapter(daftarAset);
@@ -47,7 +55,7 @@ public class DataAsetAdminActivity extends AppCompatActivity {
                     daftarAset.addAll(response.body());
                     asetAdapter.notifyDataSetChanged();
                 } else {
-                    Toast.makeText(DataAsetAdminActivity.this, "Gagal mengambil data aset", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DataAsetAdminActivity.this, "Kosong! Tidak ada data", Toast.LENGTH_SHORT).show();
                 }
             }
 

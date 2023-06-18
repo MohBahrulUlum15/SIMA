@@ -2,8 +2,11 @@ package com.example.sima.viewmodels;
 
 import androidx.lifecycle.ViewModel;
 
+import com.example.sima.data.response.admin.GetSpekPanelResponse;
 import com.example.sima.data.response.TambahPanelResponse;
 import com.example.sima.network.ApiConfig;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,6 +22,11 @@ public class PanelViewModel extends ViewModel {
                                  Callback<TambahPanelResponse> callback) {
         Call<TambahPanelResponse> call = ApiConfig.getApiService().tambahPanel(tanggal, kode_barang,
                 star_delta, direct_online, kapasitas_beban, id_user);
+        call.enqueue(callback);
+    }
+
+    public void getDataSpekPanel(Callback<List<GetSpekPanelResponse>> callback){
+        Call<List<GetSpekPanelResponse>> call = ApiConfig.getApiService().getDataSpekPanel();
         call.enqueue(callback);
     }
 }

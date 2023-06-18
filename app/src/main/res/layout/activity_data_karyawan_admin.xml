@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="12dp"
-    tools:context=".view.admin.DataAsetAdminActivity">
+    tools:context=".view.admin.DataKaryawanAdminActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Data Aset"
+        android:text="Data Karyawan"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textAlignment="center"/>

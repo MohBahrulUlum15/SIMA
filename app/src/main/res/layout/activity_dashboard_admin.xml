@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.DashboardAdminActivity">
+    tools:context=".view.admin.DashboardAdminActivity">
 
     <RelativeLayout
         android:id="@+id/card_top"
@@ -66,13 +66,12 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -86,15 +85,16 @@
                         android:layout_marginEnd="24dp">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/card_tambah_aset"
+                            android:id="@+id/card_data_karyawan"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_centerInParent="true"
                             app:cardCornerRadius="20dp">
 
                             <ImageButton
-                                android:layout_width="64dp"
-                                android:layout_height="64dp"
+                                android:id="@+id/btn_data_karyawan"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
                                 android:layout_gravity="center"
                                 android:background="@drawable/ic_user" />
                         </androidx.cardview.widget.CardView>
@@ -102,7 +102,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/card_tambah_aset"
+                            android:layout_below="@id/card_data_karyawan"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="28dp"
                             android:text="Data Karyawan"
@@ -115,26 +115,27 @@
                         android:layout_marginStart="24dp">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/card_perawatan_aset"
+                            android:id="@+id/card_data_aset"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_centerInParent="true"
                             app:cardCornerRadius="20dp">
 
                             <ImageButton
-                                android:layout_width="64dp"
-                                android:layout_height="64dp"
+                                android:id="@+id/btn_data_aset"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
                                 android:layout_gravity="center"
-                                android:background="@drawable/ic_user" />
+                                android:background="@drawable/ic_aset" />
                         </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/card_perawatan_aset"
+                            android:layout_below="@id/card_data_aset"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="24dp"
-                            android:text="Preseni Karyawan"
+                            android:text="Data Aset"
                             android:textSize="12sp" />
                     </RelativeLayout>
 
@@ -151,27 +152,27 @@
                         android:layout_marginEnd="24dp">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/card_mutasi_aset"
+                            android:id="@+id/card_data_perawatan_aset"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_centerInParent="true"
                             app:cardCornerRadius="20dp">
 
                             <ImageButton
-                                android:id="@+id/action_data_aset"
-                                android:layout_width="64dp"
-                                android:layout_height="64dp"
+                                android:id="@+id/btn_data_perawatan_aset"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
                                 android:layout_gravity="center"
-                                android:background="@drawable/ic_user" />
+                                android:background="@drawable/ic_perawatan" />
                         </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/card_mutasi_aset"
+                            android:layout_below="@id/card_data_perawatan_aset"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="28dp"
-                            android:text="Data Aset"
+                            android:text="Perawatan Aset"
                             android:textSize="12sp" />
                     </RelativeLayout>
 
@@ -181,26 +182,27 @@
                         android:layout_marginStart="24dp">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/card_unit_produksi"
+                            android:id="@+id/card_data_mutasi"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_centerInParent="true"
                             app:cardCornerRadius="20dp">
 
                             <ImageButton
-                                android:layout_width="64dp"
-                                android:layout_height="64dp"
+                                android:id="@+id/btn_data_mutasi_aset"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
                                 android:layout_gravity="center"
-                                android:background="@drawable/ic_user" />
+                                android:background="@drawable/ic_mutasi" />
                         </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/card_unit_produksi"
+                            android:layout_below="@id/card_data_mutasi"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="24dp"
-                            android:text="Kinerja Aset"
+                            android:text="Mutasi Aset"
                             android:textSize="12sp" />
                     </RelativeLayout>
 
@@ -213,29 +215,61 @@
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="24dp">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/card_panel"
+                            android:id="@+id/card_data_spesifikasi_aset"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_centerInParent="true"
                             app:cardCornerRadius="20dp">
 
                             <ImageButton
-                                android:layout_width="64dp"
-                                android:layout_height="64dp"
+                                android:id="@+id/btn_data_spesifikasi_aset"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
                                 android:layout_gravity="center"
-                                android:background="@drawable/ic_user" />
+                                android:background="@drawable/ic_spesifikasi_aset" />
                         </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/card_panel"
+                            android:layout_below="@id/card_data_spesifikasi_aset"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="28dp"
-                            android:text="Jadwal Kegiatan"
+                            android:text="Spesifikasi Aset"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card_data_laporan"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerInParent="true"
+                            app:cardCornerRadius="20dp">
+
+                            <ImageButton
+                                android:id="@+id/btn_data_laporan"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/ic_laporan" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/card_data_laporan"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="24dp"
+                            android:text="Laporan Harian"
                             android:textSize="12sp" />
                     </RelativeLayout>
 

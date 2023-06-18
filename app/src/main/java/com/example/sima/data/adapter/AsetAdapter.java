@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sima.R;
-import com.example.sima.data.model.DataAset;
 
 import java.util.List;
 

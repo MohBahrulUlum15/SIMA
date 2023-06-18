@@ -52,10 +52,24 @@
                 android:text="Nama Barang"
                 android:textSize="16sp" />
 
-            <EditText
-                android:id="@+id/et_nama_pompa_air"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp" />
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_nama_barang"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:focusable="false"
+                    android:layout_toStartOf="@id/spinner_nama_barang"/>
+
+                <Spinner
+                    android:id="@+id/spinner_nama_barang"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_daya_listrik"

@@ -52,23 +52,24 @@
                 android:text="Nama Barang"
                 android:textSize="16sp" />
 
-            <EditText
-                android:id="@+id/et_nama_barang_panel"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp" />
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tv_konfigurasi_panel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Konfigurasi"
-                android:textSize="16sp" />
+                <EditText
+                    android:id="@+id/et_nama_barang"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:focusable="false"
+                    android:layout_toStartOf="@id/spinner_nama_barang"/>
 
-            <EditText
-                android:id="@+id/et_konfigurasi_panel"
-                android:layout_width="match_parent"
-                android:layout_height="48dp" />
+                <Spinner
+                    android:id="@+id/spinner_nama_barang"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_star_delta_panel"

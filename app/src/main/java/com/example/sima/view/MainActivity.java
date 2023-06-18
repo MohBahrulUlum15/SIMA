@@ -45,15 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding.btnUnitProduksi.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, UnitProduksiActivity.class)));
 
-        binding.btnPompaAir.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, PompaAirActivity.class)));
-
-        binding.btnPompaDosing.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, PompaDosingActivity.class)));
-
-        binding.btnMotorPompa.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, MotorPompaActivity.class)));
-
-        binding.btnPanel.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, PanelActivity.class)));
-
-        binding.btnGenset.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, GensetActivity.class)));
+        binding.btnSpesifikasiAset.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, SpesifikasiAsetActivity.class)));
 
         binding.btnLaporanHarian.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, LaporanHarianActivity.class)));
 

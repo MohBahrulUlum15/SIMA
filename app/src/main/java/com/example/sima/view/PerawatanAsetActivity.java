@@ -18,7 +18,6 @@ import android.widget.Toast;
 import com.example.sima.R;
 import com.example.sima.data.model.Barang;
 import com.example.sima.data.response.TambahPerawatanResponse;
-import com.example.sima.databinding.ActivityMutasiAsetBinding;
 import com.example.sima.databinding.ActivityPerawatanAsetBinding;
 import com.example.sima.network.SessionManager;
 import com.example.sima.viewmodels.AsetViewModel;

@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiConfig {
 
 //    private static String BASE_URL = "https://simajember.com/sima-api/";
-    private static String BASE_URL = "http://192.168.1.19/sima-api/";
+    private static String BASE_URL = "http://192.168.0.10/sima-api/";
 
     public static ApiService getApiService() {
         OkHttpClient OkHttpClient = createHttpClient();

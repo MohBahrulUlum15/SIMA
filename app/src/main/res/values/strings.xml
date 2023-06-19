@@ -11,4 +11,20 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_sima">Sistem Informasi Manajemen Aset \nProduksi Air Bersih \nLokasi Utama</string>
     <string name="prompt_barang">Barang</string>
+
+    <string-array name="months_array">
+        <item></item>
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
 </resources>

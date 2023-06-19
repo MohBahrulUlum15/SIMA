@@ -8,12 +8,30 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon_apk"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.SIMA"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".view.admin.CetakLaporanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.admin.DataSpekGensetAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.admin.DataSpekPanelAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.admin.DataSpekMotorPompaAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.admin.DataSpekPompaDosingAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.admin.DataSpekPompaAirAdminActivity"
+            android:exported="false" />
         <activity
             android:name=".view.admin.DataLaporanHarianAdminActivity"
             android:exported="false" />

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.sima.R;
@@ -28,7 +29,8 @@ public class DataAsetAdminActivity extends AppCompatActivity {
     private AsetViewModel asetViewModel;
     private RecyclerView recyclerView;
     private AsetAdapter asetAdapter;
-    private List<DataAset> daftarAset;
+    private ArrayList<DataAset> daftarAset;
+    private ArrayList<DataAset> filteredList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +43,11 @@ public class DataAsetAdminActivity extends AppCompatActivity {
         }
 
         asetViewModel = new ViewModelProvider(this).get(AsetViewModel.class);
-
         recyclerView = findViewById(R.id.rv_data);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         daftarAset = new ArrayList<>();
-        asetAdapter = new AsetAdapter(daftarAset);
+        filteredList = new ArrayList<>();
+        asetAdapter = new AsetAdapter(filteredList);
         recyclerView.setAdapter(asetAdapter);
 
         asetViewModel.getFullAset(new Callback<List<DataAset>>() {
@@ -53,6 +55,7 @@ public class DataAsetAdminActivity extends AppCompatActivity {
             public void onResponse(Call<List<DataAset>> call, Response<List<DataAset>> response) {
                 if (response.isSuccessful()) {
                     daftarAset.addAll(response.body());
+                    filteredList.addAll(daftarAset);
                     asetAdapter.notifyDataSetChanged();
                 } else {
                     Toast.makeText(DataAsetAdminActivity.this, "Kosong! Tidak ada data", Toast.LENGTH_SHORT).show();
@@ -62,6 +65,32 @@ public class DataAsetAdminActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<DataAset>> call, Throwable t) {
                 Toast.makeText(DataAsetAdminActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                filteredList.clear();
+                if (s.isEmpty()) {
+                    filteredList.addAll(daftarAset);
+                } else {
+                    String filterPattern = s.toLowerCase().trim();
+                    for (DataAset aset : daftarAset) {
+                        if (aset.getKodeBarang().toLowerCase().contains(filterPattern)
+                                || aset.getNamaBarang().toLowerCase().contains(filterPattern)
+                                || aset.getMerk().toLowerCase().contains(filterPattern)) {
+                            filteredList.add(aset);
+                        }
+                    }
+                }
+                asetAdapter.notifyDataSetChanged();
+                return true;
             }
         });
     }

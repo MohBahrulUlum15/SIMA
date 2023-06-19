@@ -6,18 +6,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.sima.R;
-import com.example.sima.data.adapter.AsetAdapter;
 import com.example.sima.data.adapter.KaryawanAdapter;
-import com.example.sima.data.response.DataAset;
 import com.example.sima.data.response.DataUser;
-import com.example.sima.databinding.ActivityDataAsetAdminBinding;
+import com.example.sima.data.response.DataUser;
 import com.example.sima.databinding.ActivityDataKaryawanAdminBinding;
-import com.example.sima.viewmodels.AsetViewModel;
 import com.example.sima.viewmodels.UserViewModel;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,16 +27,17 @@ import retrofit2.Response;
 public class DataKaryawanAdminActivity extends AppCompatActivity {
 
     private ActivityDataKaryawanAdminBinding binding;
-
     private UserViewModel userViewModel;
     private RecyclerView recyclerView;
     private KaryawanAdapter karyawanAdapter;
-    private List<DataUser> daftarKaryawan;
+    private ArrayList<DataUser> daftarKaryawan;
+    private ArrayList<DataUser> filteredList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_data_karyawan_admin);
+        binding = ActivityDataKaryawanAdminBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
@@ -48,14 +48,16 @@ public class DataKaryawanAdminActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rv_data);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         daftarKaryawan = new ArrayList<>();
-        karyawanAdapter = new KaryawanAdapter(daftarKaryawan);
+        filteredList = new ArrayList<>();
+        karyawanAdapter = new KaryawanAdapter(filteredList);
         recyclerView.setAdapter(karyawanAdapter);
 
         userViewModel.getDataKaryawan(new Callback<List<DataUser>>() {
             @Override
             public void onResponse(Call<List<DataUser>> call, Response<List<DataUser>> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
                     daftarKaryawan.addAll(response.body());
+                    filteredList.addAll(daftarKaryawan);
                     karyawanAdapter.notifyDataSetChanged();
                 } else {
                     Toast.makeText(DataKaryawanAdminActivity.this, "Kosong! Tidak ada data", Toast.LENGTH_SHORT).show();
@@ -65,6 +67,32 @@ public class DataKaryawanAdminActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<DataUser>> call, Throwable t) {
                 Toast.makeText(DataKaryawanAdminActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                filteredList.clear();
+                if (s.isEmpty()) {
+                    filteredList.addAll(daftarKaryawan);
+                } else {
+                    String filterPattern = s.toLowerCase().trim();
+                    for (DataUser karyawan : daftarKaryawan) {
+                        if (karyawan.getNamaLengkap().toLowerCase().contains(filterPattern)
+                                || karyawan.getTempatLahir().toLowerCase().contains(filterPattern)
+                                || karyawan.getNoHandphone().toLowerCase().contains(filterPattern)) {
+                            filteredList.add(karyawan);
+                        }
+                    }
+                }
+                karyawanAdapter.notifyDataSetChanged();
+                return true;
             }
         });
     }

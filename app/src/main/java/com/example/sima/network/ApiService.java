@@ -28,7 +28,9 @@ import com.example.sima.data.response.admin.GetSpekMotorPompaResponse;
 import com.example.sima.data.response.admin.GetSpekPanelResponse;
 import com.example.sima.data.response.admin.GetSpekPompaResponse;
 import com.example.sima.data.response.admin.GetUnitProduksiResponse;
+import com.example.sima.data.response.laporanBulanan.LaporanBulananResponse;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -269,10 +271,15 @@ public interface ApiService {
 
     @GET("sima/admin/get_spek_pompa.php")
     Call<List<GetSpekPompaResponse>> getDataSpekPompa(
-            @Query("janis_pompa") String jenisPompa
+            @Query("jenis_pompa") String jenisPompa
     );
 
     @GET("sima/admin/get_unit_produksi.php")
     Call<List<GetUnitProduksiResponse>> getDataUnitProduksi();
+
+    @GET("sima/admin/get_laporan_bulanan.php")
+    Call<LaporanBulananResponse> getLaporanBulanan(
+            @Query("bulan") String bulan
+    );
 }
 

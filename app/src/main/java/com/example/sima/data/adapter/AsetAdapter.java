@@ -3,20 +3,25 @@ package com.example.sima.data.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sima.R;
+import com.example.sima.data.response.DataAset;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class AsetAdapter extends RecyclerView.Adapter<AsetAdapter.AsetViewHolder> {
 
-    private List<com.example.sima.data.response.DataAset> daftarAset;
+    private List<DataAset> daftarAset;
 
-    public AsetAdapter(List<com.example.sima.data.response.DataAset> daftarAset) {
+    public AsetAdapter(List<DataAset> daftarAset) {
         this.daftarAset = daftarAset;
     }
 
@@ -49,4 +54,5 @@ public class AsetAdapter extends RecyclerView.Adapter<AsetAdapter.AsetViewHolder
             tvMerk = itemView.findViewById(R.id.tv_merk_aset);
         }
     }
+
 }

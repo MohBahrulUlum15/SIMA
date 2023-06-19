@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="12dp"
+    android:layout_marginBottom="4dp"
+    android:paddingTop="4dp"
+    app:cardCornerRadius="8dp"
+    app:layout_goneMarginEnd="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="@color/bg_item">
+
+        <TextView
+            android:id="@+id/tv_kode_barang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="kode barang"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_nama_barang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="nama barang"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_star_delta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="star delta"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_direct_online"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="direct online"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_kapasitas_beban"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="kapasitas beban"
+            android:textSize="16sp"/>
+
+        </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -6,36 +6,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="12dp"
-    tools:context=".view.admin.DataLaporanHarianAdminActivity">
+    tools:context=".view.admin.DataSpekPompaDosingAdminActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Data Laporan"
+        android:text="Spesifikasi Pompa Dosing"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textAlignment="center"/>
 
-    <SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:queryHint="Search..."
         app:iconifiedByDefault="false"
         android:focusable="false"
         android:background="@drawable/bg_transparan"/>
-
-    <Button
-        android:id="@+id/btn_cetak_laporan_bulanan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Cetak Laporan"
-        android:textAllCaps="false"
-        android:backgroundTint="@color/blue_color"
-        android:layout_gravity="end"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_data"

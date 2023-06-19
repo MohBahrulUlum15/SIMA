@@ -5,12 +5,15 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.sima.R;
 import com.example.sima.data.adapter.KaryawanAdapter;
 import com.example.sima.data.adapter.LaporanAdapter;
+import com.example.sima.data.response.DataAset;
 import com.example.sima.data.response.admin.GetLaporanResponse;
 import com.example.sima.data.response.admin.GetLaporanResponse;
 import com.example.sima.databinding.ActivityDataKaryawanAdminBinding;
@@ -32,12 +35,14 @@ public class DataLaporanHarianAdminActivity extends AppCompatActivity {
     private LaporanHarianViewModel laporanHarianViewModel;
     private RecyclerView recyclerView;
     private LaporanAdapter laporanAdapter;
-    private List<GetLaporanResponse> daftarLaporan;
+    private ArrayList<GetLaporanResponse> daftarLaporan;
+    private ArrayList<GetLaporanResponse> filteredList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_data_laporan_admin);
+        binding = ActivityDataLaporanAdminBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
@@ -48,7 +53,8 @@ public class DataLaporanHarianAdminActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rv_data);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         daftarLaporan = new ArrayList<>();
-        laporanAdapter = new LaporanAdapter(daftarLaporan);
+        filteredList = new ArrayList<>();
+        laporanAdapter = new LaporanAdapter(filteredList);
         recyclerView.setAdapter(laporanAdapter);
 
         laporanHarianViewModel.getDataLaporanHarian(new Callback<List<GetLaporanResponse>>() {
@@ -56,6 +62,7 @@ public class DataLaporanHarianAdminActivity extends AppCompatActivity {
             public void onResponse(Call<List<GetLaporanResponse>> call, Response<List<GetLaporanResponse>> response) {
                 if (response.isSuccessful()){
                     daftarLaporan.addAll(response.body());
+                    filteredList.addAll(daftarLaporan);
                     laporanAdapter.notifyDataSetChanged();
                 } else {
                     Toast.makeText(DataLaporanHarianAdminActivity.this, "Kosong! Tidak ada data", Toast.LENGTH_SHORT).show();
@@ -67,5 +74,34 @@ public class DataLaporanHarianAdminActivity extends AppCompatActivity {
                 Toast.makeText(DataLaporanHarianAdminActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                filteredList.clear();
+                if (s.isEmpty()) {
+                    filteredList.addAll(daftarLaporan);
+                } else {
+                    String filterPattern = s.toLowerCase().trim();
+                    for (GetLaporanResponse laporan : daftarLaporan) {
+                        if (laporan.getTanggal().toLowerCase().contains(filterPattern)
+                                || laporan.getStandmeter().toLowerCase().contains(filterPattern)
+                                || laporan.getLuarBebanPuncak().toLowerCase().contains(filterPattern)
+                                || laporan.getBebanPuncak().toLowerCase().contains(filterPattern)) {
+                            filteredList.add(laporan);
+                        }
+                    }
+                }
+                laporanAdapter.notifyDataSetChanged();
+                return true;
+            }
+        });
+
+        binding.btnCetakLaporanBulanan.setOnClickListener(view -> {startActivity(new Intent(DataLaporanHarianAdminActivity.this, CetakLaporanActivity.class));});
     }
 }

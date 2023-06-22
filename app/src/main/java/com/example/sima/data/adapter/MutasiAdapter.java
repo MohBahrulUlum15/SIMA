@@ -35,10 +35,10 @@ public class MutasiAdapter extends RecyclerView.Adapter<MutasiAdapter.MutasiView
         GetMutasiResponse dataMutasi = daftarMutasi.get(position);
         holder.tvTanggal.setText(dataMutasi.getTanggal());
         holder.tvNamaBarang.setText(dataMutasi.getNamaBarang());
-        holder.tvLokasiAwal.setText(dataMutasi.getLokasiAwal());
-        holder.tvlokasiAkhir.setText(dataMutasi.getLokasiAkhir());
-        holder.tvSpesifikasi.setText(dataMutasi.getSpesifikasi());
-        holder.tvPenanggungJawab.setText(dataMutasi.getNamaLengkap());
+        holder.tvLokasiAwal.setText("Lokasi awal : " + dataMutasi.getLokasiAwal());
+        holder.tvlokasiAkhir.setText("Lokasi akhir : " + dataMutasi.getLokasiAkhir());
+        holder.tvSpesifikasi.setText("Spesifikasi : " + dataMutasi.getSpesifikasi());
+        holder.tvPenanggungJawab.setText("Penanggung jawab : " + dataMutasi.getNamaLengkap());
     }
 
     @Override

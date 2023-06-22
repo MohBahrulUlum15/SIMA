@@ -56,6 +56,7 @@ public class DataAsetAdminActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     daftarAset.addAll(response.body());
                     filteredList.addAll(daftarAset);
+                    binding.tvJumlahData.setText("Jumlah data : " + String.valueOf(filteredList.size()));
                     asetAdapter.notifyDataSetChanged();
                 } else {
                     Toast.makeText(DataAsetAdminActivity.this, "Kosong! Tidak ada data", Toast.LENGTH_SHORT).show();
@@ -82,13 +83,14 @@ public class DataAsetAdminActivity extends AppCompatActivity {
                 } else {
                     String filterPattern = s.toLowerCase().trim();
                     for (DataAset aset : daftarAset) {
-                        if (aset.getKodeBarang().toLowerCase().contains(filterPattern)
+                        if (aset.getKondisi().toLowerCase().contains(filterPattern)
                                 || aset.getNamaBarang().toLowerCase().contains(filterPattern)
-                                || aset.getMerk().toLowerCase().contains(filterPattern)) {
+                                || aset.getTanggalMasuk().toLowerCase().contains(filterPattern)) {
                             filteredList.add(aset);
                         }
                     }
                 }
+                binding.tvJumlahData.setText("Jumlah data : " + String.valueOf(filteredList.size()));
                 asetAdapter.notifyDataSetChanged();
                 return true;
             }

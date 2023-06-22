@@ -7,6 +7,17 @@ public class DataRegister{
 	@SerializedName("jabatan")
 	private String jabatan;
 
+	public String getValidasi() {
+		return validasi;
+	}
+
+	public void setValidasi(String validasi) {
+		this.validasi = validasi;
+	}
+
+	@SerializedName("validasi")
+	private String validasi;
+
 	@SerializedName("nama_lengkap")
 	private String namaLengkap;
 

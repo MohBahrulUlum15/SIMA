@@ -58,6 +58,7 @@ public class DataKaryawanAdminActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     daftarKaryawan.addAll(response.body());
                     filteredList.addAll(daftarKaryawan);
+                    binding.tvJumlahData.setText("Jumlah data : " + String.valueOf(filteredList.size()));
                     karyawanAdapter.notifyDataSetChanged();
                 } else {
                     Toast.makeText(DataKaryawanAdminActivity.this, "Kosong! Tidak ada data", Toast.LENGTH_SHORT).show();
@@ -91,6 +92,7 @@ public class DataKaryawanAdminActivity extends AppCompatActivity {
                         }
                     }
                 }
+                binding.tvJumlahData.setText("Jumlah data : " + String.valueOf(filteredList.size()));
                 karyawanAdapter.notifyDataSetChanged();
                 return true;
             }

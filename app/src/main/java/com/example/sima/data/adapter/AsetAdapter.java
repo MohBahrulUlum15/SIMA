@@ -38,6 +38,7 @@ public class AsetAdapter extends RecyclerView.Adapter<AsetAdapter.AsetViewHolder
         holder.tvKode.setText(dataAset.getKodeBarang());
         holder.tvNama.setText(dataAset.getNamaBarang());
         holder.tvMerk.setText(dataAset.getMerk());
+        holder.tvKondisiAset.setText("Kondisi : " + dataAset.getKondisi());
     }
 
     @Override
@@ -46,12 +47,13 @@ public class AsetAdapter extends RecyclerView.Adapter<AsetAdapter.AsetViewHolder
     }
 
     public class AsetViewHolder extends RecyclerView.ViewHolder{
-        public TextView tvKode, tvNama, tvMerk;
+        public TextView tvKode, tvNama, tvMerk, tvKondisiAset;
         public AsetViewHolder(@NonNull View itemView) {
             super(itemView);
             tvKode = itemView.findViewById(R.id.tv_kode_barang);
             tvNama = itemView.findViewById(R.id.tv_nama_aset);
             tvMerk = itemView.findViewById(R.id.tv_merk_aset);
+            tvKondisiAset = itemView.findViewById(R.id.tv_kondisi_aset);
         }
     }
 

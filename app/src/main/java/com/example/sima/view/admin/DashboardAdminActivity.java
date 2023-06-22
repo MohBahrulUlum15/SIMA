@@ -29,6 +29,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
         binding.btnDataMutasiAset.setOnClickListener(view -> startActivity(new Intent(DashboardAdminActivity.this, DataMutasiAsetAdminActivity.class)));
         binding.btnDataSpesifikasiAset.setOnClickListener(view -> startActivity(new Intent(DashboardAdminActivity.this, DataSpesifikasiAsetAdminActivity.class)));
         binding.btnDataLaporan.setOnClickListener(view -> startActivity(new Intent(DashboardAdminActivity.this, DataLaporanHarianAdminActivity.class)));
+        binding.btnDataPendaftar.setOnClickListener(view -> startActivity(new Intent(DashboardAdminActivity.this, DataPendaftarAdminActivity.class)));
 
         binding.actionLogout.setOnClickListener(view -> {
             SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);

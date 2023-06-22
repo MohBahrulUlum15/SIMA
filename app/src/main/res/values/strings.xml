@@ -11,6 +11,7 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_sima">Sistem Informasi Manajemen Aset \nProduksi Air Bersih \nLokasi Utama</string>
     <string name="prompt_barang">Barang</string>
+    <string name="jumlah_data">Jumlah data</string>
 
     <string-array name="months_array">
         <item></item>

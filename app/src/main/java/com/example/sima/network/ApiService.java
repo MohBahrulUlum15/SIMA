@@ -8,6 +8,7 @@ import com.example.sima.data.response.DataMotorPompa;
 import com.example.sima.data.response.DataMutasi;
 import com.example.sima.data.response.DataPerawatan;
 import com.example.sima.data.response.DataPompa;
+import com.example.sima.data.response.DataRegister;
 import com.example.sima.data.response.DataUser;
 import com.example.sima.data.response.TambahGensetResponse;
 import com.example.sima.data.response.TambahLaporanHarianResponse;
@@ -28,6 +29,7 @@ import com.example.sima.data.response.admin.GetSpekMotorPompaResponse;
 import com.example.sima.data.response.admin.GetSpekPanelResponse;
 import com.example.sima.data.response.admin.GetSpekPompaResponse;
 import com.example.sima.data.response.admin.GetUnitProduksiResponse;
+import com.example.sima.data.response.admin.ValidasiResponse;
 import com.example.sima.data.response.laporanBulanan.LaporanBulananResponse;
 
 import java.util.ArrayList;
@@ -77,7 +79,9 @@ public interface ApiService {
             @Field("username")
             String username,
             @Field("password")
-            String password
+            String password,
+            @Field("validasi")
+            String validasi
     );
 
     @FormUrlEncoded
@@ -251,6 +255,9 @@ public interface ApiService {
     @GET("sima/admin/get_karyawan.php")
     Call<List<DataUser>> getDataKaryawan();
 
+    @GET("sima/admin/get_pendaftar.php")
+    Call<List<DataUser>> getDataPendaftar();
+
     @GET("sima/admin/get_laporan_harian.php")
     Call<List<GetLaporanResponse>> getDataLaporanHarian();
 
@@ -280,6 +287,15 @@ public interface ApiService {
     @GET("sima/admin/get_laporan_bulanan.php")
     Call<LaporanBulananResponse> getLaporanBulanan(
             @Query("bulan") String bulan
+    );
+
+    @FormUrlEncoded
+    @POST("sima/admin/update_validasi_user.php")
+    Call<ValidasiResponse> validasiPendaftar(
+            @Field("id_user")
+            String id_user,
+            @Field("validasi")
+            String validasi
     );
 }
 

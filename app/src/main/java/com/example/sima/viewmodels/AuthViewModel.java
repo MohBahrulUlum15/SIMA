@@ -28,13 +28,14 @@ public class AuthViewModel extends ViewModel {
                          String departemen,
                          String username,
                          String password,
+                         String validasi,
                          Callback<RegisterResponse> callback) {
         Call<RegisterResponse> call = ApiConfig.getApiService().registerUser(
                 nama_lengkap, tempat_lahir,
                 tanggal_lahir, alamat_lengkap,
                 jenis_kelamin, kewarganegaraan,
                 agama, no_handphone, pendidikan_terakhir,
-                jabatan, departemen, username, password);
+                jabatan, departemen, username, password, validasi);
         call.enqueue(callback);
     }
 }

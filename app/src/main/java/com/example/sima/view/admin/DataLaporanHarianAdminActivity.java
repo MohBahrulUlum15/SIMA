@@ -63,6 +63,7 @@ public class DataLaporanHarianAdminActivity extends AppCompatActivity {
                 if (response.isSuccessful()){
                     daftarLaporan.addAll(response.body());
                     filteredList.addAll(daftarLaporan);
+                    binding.tvJumlahData.setText("Jumlah data : " + String.valueOf(filteredList.size()));
                     laporanAdapter.notifyDataSetChanged();
                 } else {
                     Toast.makeText(DataLaporanHarianAdminActivity.this, "Kosong! Tidak ada data", Toast.LENGTH_SHORT).show();
@@ -89,14 +90,12 @@ public class DataLaporanHarianAdminActivity extends AppCompatActivity {
                 } else {
                     String filterPattern = s.toLowerCase().trim();
                     for (GetLaporanResponse laporan : daftarLaporan) {
-                        if (laporan.getTanggal().toLowerCase().contains(filterPattern)
-                                || laporan.getStandmeter().toLowerCase().contains(filterPattern)
-                                || laporan.getLuarBebanPuncak().toLowerCase().contains(filterPattern)
-                                || laporan.getBebanPuncak().toLowerCase().contains(filterPattern)) {
+                        if (laporan.getTanggal().toLowerCase().contains(filterPattern)) {
                             filteredList.add(laporan);
                         }
                     }
                 }
+                binding.tvJumlahData.setText("Jumlah data : " + String.valueOf(filteredList.size()));
                 laporanAdapter.notifyDataSetChanged();
                 return true;
             }

@@ -63,6 +63,7 @@ public class DataPerawatanAsetAdminActivity extends AppCompatActivity {
                 if (response.isSuccessful()){
                     daftarPerawatan.addAll(response.body());
                     filteredList.addAll(daftarPerawatan);
+                    binding.tvJumlahData.setText("Jumlah data : " + String.valueOf(filteredList.size()));
                     perawatanAdapter.notifyDataSetChanged();
                 } else {
                     Toast.makeText(DataPerawatanAsetAdminActivity.this, "Kosong! Tidak ada data", Toast.LENGTH_SHORT).show();
@@ -97,6 +98,7 @@ public class DataPerawatanAsetAdminActivity extends AppCompatActivity {
                         }
                     }
                 }
+                binding.tvJumlahData.setText("Jumlah data : " + String.valueOf(filteredList.size()));
                 perawatanAdapter.notifyDataSetChanged();
                 return true;
             }

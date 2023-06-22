@@ -79,6 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String departemen = binding.etDepartemen.getText().toString();
                 String username = binding.etUsername.getText().toString();
                 String password = binding.etPassword.getText().toString();
+                String validasi = "diproses";
 
                 if (nama_lengkap.isEmpty()) {
                     binding.etNamaLengkap.setError("belum diisi!");
@@ -109,7 +110,7 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     authViewModel.register(nama_lengkap, tempat_lahir, tanggal_lahir,
                             alamat_lengkap, jenis_kelamin, kewarganegaraan, agama, no_handphone, pendidikan_terakhir,
-                            jabatan, departemen, username, password, new Callback<RegisterResponse>() {
+                            jabatan, departemen, username, password, validasi, new Callback<RegisterResponse>() {
                                 @Override
                                 public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
                                     if (response.isSuccessful()) {

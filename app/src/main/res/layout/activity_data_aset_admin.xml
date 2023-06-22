@@ -26,6 +26,16 @@
         android:focusable="false"
         android:background="@drawable/bg_transparan"/>
 
+    <TextView
+        android:id="@+id/tv_jumlah_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Jumlah aset : 2"
+        android:layout_marginBottom="16dp"
+        android:textStyle="bold"
+        android:textAlignment="viewEnd"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_data"
         android:layout_width="match_parent"

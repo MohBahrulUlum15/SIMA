@@ -34,9 +34,9 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanV
     public void onBindViewHolder(@NonNull LaporanAdapter.LaporanViewHolder holder, int position) {
         GetLaporanResponse dataLaporan = daftarLaporan.get(position);
         holder.tvTanggal.setText(dataLaporan.getTanggal());
-        holder.tvBebanPuncak.setText(dataLaporan.getBebanPuncak());
-        holder.tvLuarBebanPuncak.setText(dataLaporan.getLuarBebanPuncak());
-        holder.tvStandmeter.setText(dataLaporan.getStandmeter());
+        holder.tvBebanPuncak.setText("Beban Puncak : " + dataLaporan.getBebanPuncak());
+        holder.tvLuarBebanPuncak.setText("Luar Beban Puncak : " + dataLaporan.getLuarBebanPuncak());
+        holder.tvStandmeter.setText("Standmeter : " + dataLaporan.getStandmeter());
     }
 
     @Override

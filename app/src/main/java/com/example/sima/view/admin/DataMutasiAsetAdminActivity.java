@@ -59,6 +59,7 @@ public class DataMutasiAsetAdminActivity extends AppCompatActivity {
                 if (response.isSuccessful()){
                     daftarMutasi.addAll(response.body());
                     filteredList.addAll(daftarMutasi);
+                    binding.tvJumlahData.setText("Jumlah data : " + String.valueOf(filteredList.size()));
                     mutasiAdapter.notifyDataSetChanged();
                 } else {
                     Toast.makeText(DataMutasiAsetAdminActivity.this, "Kosong! Tidak ada data", Toast.LENGTH_SHORT).show();
@@ -94,6 +95,7 @@ public class DataMutasiAsetAdminActivity extends AppCompatActivity {
                         }
                     }
                 }
+                binding.tvJumlahData.setText("Jumlah data : " + String.valueOf(filteredList.size()));
                 mutasiAdapter.notifyDataSetChanged();
                 return true;
             }

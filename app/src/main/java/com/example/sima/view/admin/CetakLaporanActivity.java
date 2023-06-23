@@ -125,6 +125,15 @@ public class CetakLaporanActivity extends AppCompatActivity implements AdapterVi
                                 String message = laporanResponse.getMsg();
                                 Toast.makeText(CetakLaporanActivity.this, message, Toast.LENGTH_SHORT).show();
                                 // Penanganan jika terdapat pesan error dari respons API
+                                binding.txtLiterPerBulan.setText("");
+                                binding.txtLiterPerDetik.setText("");
+
+                                binding.txtJudul.setText("");
+                                binding.txtTanggal.setText("");
+                                binding.txtDeskripsi.setText("");
+                                binding.txtLiterPerBulan.setText("");
+                                binding.txtLiterPerDetik.setText("");
+                                binding.txtPetugas.setText("");
                             }
                         } else {
                             Toast.makeText(CetakLaporanActivity.this, "Gagal mengambil data", Toast.LENGTH_SHORT).show();
